@@ -1,24 +1,49 @@
 <div class="wrapper">
-    <div class="header">Citaion de Marvel</div>
+    <div class="container">
+        <div class="header">Citations Marvel</div>
 
-    <div class="cards_wrap">
+        <div class="category-intro">
+            <p>Découvrez les citations légendaires de l'univers Marvel. Des héros iconiques aux moments épiques qui ont marqué l'histoire du MCU.</p>
+        </div>
 
-        <?php foreach ($citation as $citations) : ?>
-            <div class="card_item">
-                <div class="card_inner">
-                    <div class="pro_like">
-                        <img src="images/<?= $citations['name_photo'] ?>.jpg">
-                        <div class="btn_like"><button class="button-85" role="button"><i class="fa-solid fa-heart"></i>(15)</button></div>
+        <div class="cards_wrap">
+            <?php foreach ($citation as $index => $citations) : ?>
+                <div class="card_item">
+                    <div class="card_inner">
+                        <span class="data-line"></span>
+                        <span class="data-line"></span>
+
+                        <div class="card_header">
+                            <img src="images/<?= $citations['name_photo'] ?>.jpg" alt="<?= $citations['auteur'] ?>">
+                            <div class="card_character_info">
+                                <div class="role_name"><?= $citations['auteur'] ?></div>
+                                <div class="film_name"><?= $citations['title'] ?></div>
+                            </div>
+                        </div>
+
+                        <div class="card_quote_section">
+                            <div class="quote"><?= $citations['citation'] ?></div>
+                        </div>
+
+                        <div class="card_footer">
+                            <div class="card_stats"><?= str_pad($index + 1, 4, '0', STR_PAD_LEFT) ?></div>
+                            <button class="button-85" role="button">
+                                <i class="fa-solid fa-heart"></i> 15
+                            </button>
+                        </div>
                     </div>
-                    <div class="role_name"><?= $citations['auteur'] ?></div>
-                    <div class="film_name"><?= $citations['title'] ?></div>
-                    <div class="quote"><?= $citations['citation'] ?></div>
                 </div>
-            </div>
-        <?php endforeach ?>
+            <?php endforeach ?>
+        </div>
+
+        <div class="back-to-categories">
+            <a href="index.php?controller=citation&task=index" class="btn-primary">
+                <i class="fa-solid fa-arrow-left"></i> Retour aux catégories
+            </a>
+        </div>
     </div>
 </div>
+
 <div class="btn_top">
-    <!-- <i class="fa-solid fa-arrow-up icone"></i> -->
-    <img src="svg/arrow-up-solid.svg" class="icone" alt="">
+    <img src="svg/arrow-up-solid.svg" class="icone" alt="Retour en haut">
 </div>
